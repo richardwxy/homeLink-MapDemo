@@ -53,7 +53,9 @@
 
 -(void)mapView:(MAMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
-    NSLog(@"%lf",mapView.zoomLevel);
+    NSLog(@"%f",mapView.zoomLevel);
+    
+    
     [self requestForPOI];
 }
 
@@ -93,7 +95,7 @@
         NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
         //系统自带JSON解析
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",resultDic);
+//        NSLog(@"%@",resultDic);
         NSArray * arr = [[resultDic objectForKey:@"response"] objectForKey:@"docs"];
         [_dataArray removeAllObjects];
         for (NSDictionary * dic in arr) {
@@ -116,7 +118,7 @@
 
 -(void)createAnnotation
 {
-    NSLog(@"%@",_dataArray);
+//    NSLog(@"%@",_dataArray);
     
     for (sectionModel * model in _dataArray) {
         myAnnotation * anno = [[myAnnotation alloc] init];
