@@ -51,6 +51,11 @@
     [locationManager startUpdatingLocation];
 }
 
+-(void)mapView:(MAMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    NSLog(@"%lf",mapView.zoomLevel);
+    [self requestForPOI];
+}
 
 -(void)locationManager:(CLLocationManager *)manager
    didUpdateToLocation:(CLLocation *)newLocation fromLocation: (CLLocation *)oldLocation
@@ -90,6 +95,7 @@
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",resultDic);
         NSArray * arr = [[resultDic objectForKey:@"response"] objectForKey:@"docs"];
+        [_dataArray removeAllObjects];
         for (NSDictionary * dic in arr) {
              sectionModel * model = [[sectionModel alloc] init];
             if ([[dic valueForKey:@"communityName"] length]>=5) {
@@ -135,6 +141,7 @@
                 annotationView.draggable = YES;
                 annotationView.calloutOffset = CGPointMake(0, -5);
             }
+            annotationView.annotation = annotation;
             return annotationView;
         }
         else
