@@ -54,7 +54,7 @@
 -(void)mapView:(MAMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
     NSLog(@"%f",mapView.zoomLevel);
-    
+    NSLog(@"%f",mapView.region.span.latitudeDelta);
     
     [self requestForPOI];
 }
