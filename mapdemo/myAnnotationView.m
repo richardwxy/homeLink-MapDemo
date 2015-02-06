@@ -23,14 +23,14 @@
         [self addSubview:_mainImageV];
 
         _name = [[UILabel alloc] initWithFrame:CGRectMake(5, -1, 86, 30)];
-        _name.text = [[(myAnnotation *)annotation model] sectionName];
+//        _name.text = [[(myAnnotation *)annotation model] sectionName];
         _name.font = [UIFont systemFontOfSize:13];
         _name.textColor = [UIColor whiteColor];
         _name.textAlignment = NSTextAlignmentLeft;
         [_mainImageV addSubview:_name];
             
         _num = [[UILabel alloc] initWithFrame:CGRectMake(59, -1, 20, 30)];
-        _num.text = [NSString stringWithFormat:@"%ld",[[(myAnnotation *)annotation model] sellNum]];
+//        _num.text = [NSString stringWithFormat:@"%ld",[[(myAnnotation *)annotation model] sellNum]];
         _num.font = [UIFont systemFontOfSize:13];
         _num.textColor = [UIColor whiteColor];
         _num.textAlignment = NSTextAlignmentLeft;

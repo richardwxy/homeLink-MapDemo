@@ -54,29 +54,29 @@
     [locationManager startUpdatingLocation];
 }
 
--(void)mapView:(MAMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+-(void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     NSLog(@"%f",mapView.zoomLevel);
     NSLog(@"%f",mapView.region.span.latitudeDelta);
-    if (mapView.region.span.latitudeDelta>=0.057 && [zoomLevel isEqualToString:@"detail"] && isfirst==NO) {
-        zoomLevel = @"section";
-        [_mapView removeAnnotations:[_mapView annotations]];
-    }
-    else if(mapView.region.span.latitudeDelta<0.057 && [zoomLevel isEqualToString:@"section"])
-    {
-        zoomLevel = @"detail";
-        [_mapView removeAnnotations:[_mapView annotations]];
-        isfirst = NO;
-    }
-    else if(mapView.region.span.latitudeDelta<0.057)
-    {
-        zoomLevel = @"detail";
-        isfirst = NO;
-    }
-    else
-    {
-        return ;
-    }
+//    if (mapView.region.span.latitudeDelta>=0.057 && [zoomLevel isEqualToString:@"detail"] && isfirst==NO) {
+//        zoomLevel = @"section";
+////        [_mapView removeAnnotations:[_mapView annotations]];
+//    }
+//    else if(mapView.region.span.latitudeDelta<0.057 && [zoomLevel isEqualToString:@"section"])
+//    {
+//        zoomLevel = @"detail";
+////        [_mapView removeAnnotations:[_mapView annotations]];
+//        isfirst = NO;
+//    }
+//    else if(mapView.region.span.latitudeDelta<0.057)
+//    {
+//        zoomLevel = @"detail";
+//        isfirst = NO;
+//    }
+//    else
+//    {
+//        return ;
+//    }
     isfirst = NO;
 
     
@@ -129,6 +129,7 @@
 //        NSLog(@"%@",resultDic);
         NSArray * arr = [[resultDic objectForKey:@"response"] objectForKey:@"docs"];
         [_dataArray removeAllObjects];
+//        [_mapView removeAnnotations:_mapView.annotations];
         for (NSDictionary * dic in arr) {
              sectionModel * model = [[sectionModel alloc] init];
             if ([zoomLevel isEqualToString:@"detail"]) {
@@ -167,6 +168,11 @@
         myAnnotation * anno = [[myAnnotation alloc] init];
         anno.model = model;
         anno.lc2d = CLLocationCoordinate2DMake(model.latitude, model.longtitude);
+        
+        if (_mapView.annotations.count>=20) {
+            [_mapView removeAnnotation:[[_mapView annotations] firstObject]];
+        }
+        
         [_mapView addAnnotation:anno];
     }
 }
@@ -178,9 +184,6 @@
             static NSString *customReuseIndetifier = @"customReuseIndetifier";
             
             myAnnotationView *annotationView = (myAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-            annotationView.name.text = nil;
-            annotationView.num.text = nil;
-            annotationView.mainImageV.image = nil;
             if (annotationView == nil)
             {
                 annotationView = [[myAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
@@ -192,8 +195,6 @@
             sectionModel * model = [(myAnnotation *)annotation model];
             annotationView.name.text = model.sectionName;
             annotationView.num.text = [NSString stringWithFormat:@"%ld",(long)model.sellNum];
-//            annotationView.mainImageV.image
-            
             return annotationView;
         }
         else
