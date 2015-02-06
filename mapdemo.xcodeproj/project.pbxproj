@@ -31,6 +31,8 @@
 		799C86921A8349140046984B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799C86911A8349140046984B /* SystemConfiguration.framework */; };
 		799C86951A8373780046984B /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 799C86941A8373780046984B /* myAnnotation.m */; };
 		799C86971A846A220046984B /* selfImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 799C86961A846A220046984B /* selfImg@2x.png */; };
+		799C869A1A849F280046984B /* mySectionAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 799C86991A849F280046984B /* mySectionAnnotationView.m */; };
+		799C869C1A84A1B50046984B /* annoSImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 799C869B1A84A1B50046984B /* annoSImg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,9 @@
 		799C86931A8373780046984B /* myAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
 		799C86941A8373780046984B /* myAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
 		799C86961A846A220046984B /* selfImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selfImg@2x.png"; sourceTree = "<group>"; };
+		799C86981A849F280046984B /* mySectionAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySectionAnnotationView.h; sourceTree = "<group>"; };
+		799C86991A849F280046984B /* mySectionAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mySectionAnnotationView.m; sourceTree = "<group>"; };
+		799C869B1A84A1B50046984B /* annoSImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "annoSImg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,7 @@
 				799C867D1A83486E0046984B /* Resources */,
 				799C86301A830E160046984B /* AppDelegate.h */,
 				799C86581A831D550046984B /* annoImg@2x.png */,
+				799C869B1A84A1B50046984B /* annoSImg@2x.png */,
 				799C86311A830E160046984B /* AppDelegate.m */,
 				799C86331A830E160046984B /* ViewController.h */,
 				799C86961A846A220046984B /* selfImg@2x.png */,
@@ -192,6 +198,8 @@
 				799C86551A831B4F0046984B /* myAnnotationView.h */,
 				799C86561A831B4F0046984B /* myAnnotationView.m */,
 				799C86931A8373780046984B /* myAnnotation.h */,
+				799C86981A849F280046984B /* mySectionAnnotationView.h */,
+				799C86991A849F280046984B /* mySectionAnnotationView.m */,
 				799C86941A8373780046984B /* myAnnotation.m */,
 				799C862C1A830E160046984B /* Supporting Files */,
 			);
@@ -373,6 +381,7 @@
 			files = (
 				799C86971A846A220046984B /* selfImg@2x.png in Resources */,
 				799C86801A83486E0046984B /* AMap.bundle in Resources */,
+				799C869C1A84A1B50046984B /* annoSImg@2x.png in Resources */,
 				799C86591A831D550046984B /* annoImg@2x.png in Resources */,
 				799C86381A830E160046984B /* Main.storyboard in Resources */,
 				799C863D1A830E160046984B /* LaunchScreen.xib in Resources */,
@@ -427,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799C869A1A849F280046984B /* mySectionAnnotationView.m in Sources */,
 				799C86351A830E160046984B /* ViewController.m in Sources */,
 				799C86321A830E160046984B /* AppDelegate.m in Sources */,
 				799C86571A831B4F0046984B /* myAnnotationView.m in Sources */,
